@@ -23,6 +23,8 @@ public class MainActivity extends AppCompatActivity {
 
         IntentIntegrator integrator = new IntentIntegrator(this);
         integrator.setCaptureActivity(ScannerActivity.class);
+        integrator.setOrientationLocked(false); // default가 세로모드인데 휴대폰 방향에 따라 가로, 세로로 자동 변경됩니다.
+        integrator.setPrompt("바코드/QR코드를 사각형에 맞춰주세요!");
         integrator.initiateScan();
     }
 
