@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".MainActivity">
+    tools:context=".ScannerActivity">
 
     <com.journeyapps.barcodescanner.DecoratedBarcodeView
         android:id="@+id/zxing_barcode_scanner"
@@ -15,49 +15,52 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="@color/colorPrimary">
-    </LinearLayout>
+        android:layout_height="56dp"
+        android:background="@color/colorPrimary"></LinearLayout>
 
     <ImageButton
-        android:padding="7dp"
-        android:background="@null"
-        android:src="@drawable/ic_settings_white_36dp"
         android:id="@+id/setting_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentTop="true"
+        android:background="@null"
+        android:padding="10dp"
+        android:src="@drawable/ic_settings_white_36dp" />
 
     <ImageButton
-        android:onClick="switchFlashlight"
-        android:padding="7dp"
-        android:background="@null"
-        android:src="@drawable/ic_flash_off_white_36dp"
         android:id="@+id/switch_flashlight"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:background="@null"
+        android:onClick="switchFlashlight"
+        android:padding="10dp"
+        android:src="@drawable/ic_flash_off_white_36dp" />
 
     <LinearLayout
-        android:gravity="center_horizontal"
         android:layout_width="match_parent"
-        android:layout_height="250dp"
-        android:background="@color/colorPrimary"
-        android:layout_alignParentBottom="true"
+        android:layout_height="200dp"
+        android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
+        android:layout_alignParentBottom="true"
+        android:background="@color/colorPrimary"
+        android:gravity="center_horizontal">
 
         <TextView
             android:id="@+id/zxing_status_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
             android:background="@color/zxing_transparent"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
             android:text="@string/zxing_msg_default_status"
-            android:textColor="@color/zxing_status_text" />
+            android:textColor="@color/zxing_status_text"
+            android:textSize="18sp" />
     </LinearLayout>
 
 </RelativeLayout>
