@@ -1,15 +1,11 @@
 package com.redonearth.redscanner;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.app.Activity;
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
@@ -21,16 +17,16 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-    }
-
-    protected void onResume() {
-        super.onResume();
 
         IntentIntegrator integrator = new IntentIntegrator(this);
         integrator.setCaptureActivity(ScannerActivity.class);
         integrator.setOrientationLocked(false); // default가 세로 모드인데 휴대폰 방향에 따라 가로, 세로로 자동 변경됩니다.
         integrator.setPrompt("바코드/QR코드를 사각형에 맞춰주세요!");
         integrator.initiateScan();
+    }
+
+    protected void onResume() {
+        super.onResume();
     }
 
     @Override
@@ -50,7 +46,8 @@ public class MainActivity extends AppCompatActivity {
                 if (Pattern.matches("[0-9]{1,13}", contents)) {
 
                 } else {
-                    Intent intent = new Intent(Intent.ACTION_VIEW);
+//                    Intent intent = new Intent(Intent.ACTION_VIEW);
+                    Intent intent = new Intent(this, WebViewActivity.class);
                     intent.setData(Uri.parse(contents));
                     startActivity(intent);
                 }
@@ -58,16 +55,5 @@ public class MainActivity extends AppCompatActivity {
         } else {
             super.onActivityResult(requestCode, resultCode, data);
         }
-
-//        new AlertDialog.Builder(this)
-//                .setTitle(R.string.app_name)
-//                .setMessage(result.getContents() + " [" + result.getFormatName() + "]")
-//                .setPositiveButton("확인", new DialogInterface.OnClickListener() {
-//            @Override
-//            public void onClick(DialogInterface dialog, int which) {
-//                dialog.dismiss();
-//            }
-//        })
-//        .show();
     }
 }
