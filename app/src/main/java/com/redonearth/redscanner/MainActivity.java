@@ -35,14 +35,16 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        
+
         if (requestCode == IntentIntegrator.REQUEST_CODE) {
             // QR코드/바코드를 스캔한 결과 값을 가져옵니다.
             IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
 
             if (result.getContents() == null) {
+                // 취소됨
                 Toast.makeText(this, "취소되었습니다.", Toast.LENGTH_LONG).show();
             } else {
+                // 스캔된 QR Code --> result.getContents()
                 Toast.makeText(this, "스캔: " + result.getContents(), Toast.LENGTH_LONG).show();
                 String contents = data.getStringExtra("SCAN_RESULT");
                 if (Pattern.matches("[0-9]{1,13}", contents)) {
