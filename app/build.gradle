@@ -35,4 +35,8 @@ dependencies {
 
     // https://mvnrepository.com/artifact/org.apache.httpcomponents/httpcore
     implementation group: 'org.apache.httpcomponents', name: 'httpcore', version: '4.4.11'
+
+    // google vision gradle
+    // https://medium.com/cashify-engineering/barcode-reader-using-google-mobile-vision-88b3e9f31668
+    implementation 'com.google.android.gms:play-services-vision:17.0.2'
 }
