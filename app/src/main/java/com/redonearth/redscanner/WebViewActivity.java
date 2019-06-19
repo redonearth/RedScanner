@@ -22,8 +22,13 @@ public class WebViewActivity extends Activity {
         webView = findViewById(R.id.webView);
         webView.setWebViewClient(new WebViewClient());
         webView.setWebChromeClient(new WebChromeClient());
+
+        // private WebSettings websettings는 에러 발생.
+        // webView.getSettings()로 해야 정상 작동함.
         webView.getSettings().setJavaScriptEnabled(true);
         webView.getSettings().setDomStorageEnabled(true);
+        webView.getSettings().setBuiltInZoomControls(true);
+        webView.getSettings().setDisplayZoomControls(false);
 
         Intent intent = getIntent();
         Uri uri = Uri.parse(intent.getDataString());
