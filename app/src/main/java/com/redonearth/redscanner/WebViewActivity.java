@@ -23,7 +23,8 @@ public class WebViewActivity extends Activity {
         webView.setWebViewClient(new WebViewClient());
         webView.setWebChromeClient(new WebChromeClient());
 
-        // private WebSettings websettings는 에러 발생.
+//        WebSettings webSettings = webView.getSettings();
+        // private WebSettings webSettings는 에러 발생.
         // webView.getSettings()로 해야 정상 작동함.
         webView.getSettings().setJavaScriptEnabled(true);
         webView.getSettings().setDomStorageEnabled(true);
@@ -33,5 +34,20 @@ public class WebViewActivity extends Activity {
         Intent intent = getIntent();
         Uri uri = Uri.parse(intent.getDataString());
         webView.loadUrl(String.valueOf(uri));
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = getIntent();
+        Uri uri = Uri.parse(intent.getDataString());
+
+        // 뒤로 가기 누를 때 동작
+        if (webView.getOriginalUrl().equalsIgnoreCase(String.valueOf(uri))) {
+            super.onBackPressed();
+        } else if (webView.canGoBack()) {
+            webView.goBack();
+        } else {
+            super.onBackPressed();
+        }
     }
 }
