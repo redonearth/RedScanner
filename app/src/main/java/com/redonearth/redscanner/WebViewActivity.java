@@ -24,10 +24,18 @@ public class WebViewActivity extends Activity {
         webView.setWebChromeClient(new WebChromeClient());
 
 //        WebSettings webSettings = webView.getSettings();
-        // private WebSettings webSettings는 에러 발생.
-        // webView.getSettings()로 해야 정상 작동함.
+        /*
+         * private WebSettings webSettings는 에러 발생.
+         * webView.getSettings()로 해야 정상 작동함.
+         */
         webView.getSettings().setJavaScriptEnabled(true);
         webView.getSettings().setDomStorageEnabled(true);
+
+        // 화면 비율
+        webView.getSettings().setUseWideViewPort(true);
+        webView.getSettings().setLoadWithOverviewMode(true);
+
+        // 줌 기능
         webView.getSettings().setBuiltInZoomControls(true);
         webView.getSettings().setDisplayZoomControls(false);
 
