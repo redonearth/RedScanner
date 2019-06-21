@@ -69,7 +69,16 @@ public class LoginActivity extends AppCompatActivity {
                         public void onResponse(String response) {
                             try {
                                 JSONObject jsonResponse = new JSONObject(response);
+//                            JSONArray jsonResponse = new JSONArray(response);
+
+//                            for(int i=0; i<jsonResponse.length(); i++) {
+//                                JSONObject jsonObject = jsonResponse.getJSONObject(i);
+//                                String userID = jsonObject.getString("userID");
+//                                String userPassword = jsonObject.getString("userPassword");
+//                            }
+
                                 Log.d("jsonResponse :::::::", jsonResponse.toString());
+//                            boolean success = jsonResponse.getBoolean(1);
                                 boolean success = jsonResponse.getBoolean("success");
                                 if(success) {
                                     SharedPreferences auto = getSharedPreferences("auto", Activity.MODE_PRIVATE);
