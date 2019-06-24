@@ -83,13 +83,13 @@ public class ScannerActivity extends Activity implements DecoratedBarcodeView.To
 
     @Override
     public void onTorchOn() {
-        switchFlashlightButton.setImageResource(R.drawable.ic_flash_on_white_36dp);
+        switchFlashlightButton.setImageResource(R.drawable.ic_flash_off_white_36dp);
         switchFlashlightButtonCheck = false;
     }
 
     @Override
     public void onTorchOff() {
-        switchFlashlightButton.setImageResource(R.drawable.ic_flash_off_white_36dp);
+        switchFlashlightButton.setImageResource(R.drawable.ic_flash_on_white_36dp);
         switchFlashlightButtonCheck = true;
     }
 }
