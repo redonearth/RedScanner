@@ -8,8 +8,8 @@ import java.util.Map;
 
 public class RegisterRequest extends StringRequest {
 
-//    final static private String URL = "http://10.0.2.2/UserRegister.php"; // localhost일 경우 작동 안 함. IP나 url 입력. 10.0.2.2도 가능!
-    final static private String URL = "http://10.0.2.2:8080/UserRegister"; // localhost일 경우 작동 안 함. IP나 url 입력. 10.0.2.2도 가능!
+    final static private String URL = "http://10.0.2.2/UserRegister.php"; // localhost일 경우 작동 안 함. IP나 url 입력. 10.0.2.2도 가능!
+//    final static private String URL = "http://10.0.2.2:8080/UserRegister"; // localhost일 경우 작동 안 함. IP나 url 입력. 10.0.2.2도 가능!
 
     private Map<String, String> parameters;
 
