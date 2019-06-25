@@ -5,4 +5,5 @@
     <color name="colorAccent">#AC1B27</color>
     <color name="colorWarning">#E41B1B</color>
     <color name="colorGray">#8c8c8c</color>
+    <color name="viewfinder_laser">#F30E43</color>
 </resources>

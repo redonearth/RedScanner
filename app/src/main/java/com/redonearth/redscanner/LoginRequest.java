@@ -9,7 +9,8 @@ import java.util.Map;
 public class LoginRequest extends StringRequest {
 
     final static private String URL = "http://10.0.2.2/UserLogin.php"; // localhost일 경우 작동 안 함. IP나 url 입력. 10.0.2.2도 가능!
-//    final static private String URL = "http://10.0.0.35:8080/user-login"; // localhost일 경우 작동 안 함. IP나 url 입력.
+//    final static private String URL = "http://10.0.2.2:8080/UserLogin"; // localhost일 경우 작동 안 함. IP나 url 입력. 10.0.2.2도 가능!
+
     private Map<String, String> parameters;
 
     public LoginRequest(String userID, String userPassword, Response.Listener<String> listener) {
