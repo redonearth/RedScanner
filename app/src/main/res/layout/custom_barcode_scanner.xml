@@ -6,11 +6,10 @@
         android:id="@+id/zxing_barcode_surface"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginBottom="150dp"
         app:zxing_framing_rect_width="200dp"
         app:zxing_framing_rect_height="200dp" />
-
-    <com.journeyapps.barcodescanner.ViewfinderView
+    
+    <com.redonearth.redscanner.CustomZxingView
         android:id="@+id/zxing_viewfinder_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -24,9 +23,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginBottom="200dp"
+        android:layout_marginBottom="135dp"
         android:text="바코드를 영역에 맞춰주세요."
-        android:textStyle="bold"
-        android:textColor="#ffffff" />
+        android:textColor="#ffffff"
+        android:textSize="16sp"
+        android:textStyle="bold" />
 
 </merge>
