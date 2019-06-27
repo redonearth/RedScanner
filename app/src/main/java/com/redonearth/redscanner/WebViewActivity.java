@@ -5,13 +5,16 @@ import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.View;
 import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.EditText;
 
-public class WebViewActivity extends Activity {
+public class WebViewActivity extends Activity implements View.OnClickListener {
 
     private WebView webView;
+    private EditText address;
 
     @SuppressLint("SetJavaScriptEnabled")
     @Override
@@ -20,7 +23,15 @@ public class WebViewActivity extends Activity {
         setContentView(R.layout.activity_web_view);
 
         webView = findViewById(R.id.webView);
-        webView.setWebViewClient(new WebViewClient());
+        address = findViewById(R.id.address_line);
+
+        webView.setWebViewClient(new WebViewClient() {
+            @Override
+            public void onPageFinished(WebView view, String url) {
+                address.setText(url);
+                super.onPageFinished(view, url);
+            }
+        });
         webView.setWebChromeClient(new WebChromeClient());
 
 //        WebSettings webSettings = webView.getSettings();
@@ -42,6 +53,27 @@ public class WebViewActivity extends Activity {
         Intent intent = getIntent();
         Uri uri = Uri.parse(intent.getDataString());
         webView.loadUrl(String.valueOf(uri));
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch(view.getId()){
+            case R.id.back_btn:
+                webView.goBack();
+                break;
+
+            case R.id.forward_btn:
+                webView.goForward();
+                break;
+
+            case R.id.refresh_btn:
+                String add = address.getText().toString();
+                if(!add.contains("http://")) {
+                    add = "http://" + add;
+                }
+                webView.loadUrl(add);
+                break;
+        }
     }
 
     @Override
