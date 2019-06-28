@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.MailTo;
@@ -22,6 +23,7 @@ import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.core.content.ContextCompat;
 
 public class WebViewActivity extends Activity {
@@ -212,12 +214,43 @@ public class WebViewActivity extends Activity {
 
         // 뒤로 가기 누를 때 동작
         if (webView.getOriginalUrl().equalsIgnoreCase(String.valueOf(uri))) {
+//            new AlertDialog.Builder(this)
+//                    .setTitle(R.string.app_name)
+//                    .setMessage("브라우저를 종료하시겠습니까?")
+//                    .setPositiveButton("확인", new DialogInterface.OnClickListener() {
+//                        @Override
+//                        public void onClick(DialogInterface dialogInterface, int i) {
+//                            startActivity(new Intent(WebViewActivity.this, ScannerContainerActivity.class));
+//                        }
+//                    })
+//                    .setNegativeButton("취소", new DialogInterface.OnClickListener() {
+//                        @Override
+//                        public void onClick(DialogInterface dialogInterface, int i) {
+//                            dialogInterface.dismiss();
+//                        }
+//                    })
+//                    .show();
             startActivity(new Intent(this, ScannerContainerActivity.class));
         } else if (webView.canGoBack()) {
             webView.goBack();
         } else {
+//            new AlertDialog.Builder(this)
+//                    .setTitle(R.string.app_name)
+//                    .setMessage("브라우저를 종료하시겠습니까?")
+//                    .setPositiveButton("확인", new DialogInterface.OnClickListener() {
+//                        @Override
+//                        public void onClick(DialogInterface dialogInterface, int i) {
+//                            startActivity(new Intent(WebViewActivity.this, ScannerContainerActivity.class));
+//                        }
+//                    })
+//                    .setNegativeButton("취소", new DialogInterface.OnClickListener() {
+//                        @Override
+//                        public void onClick(DialogInterface dialogInterface, int i) {
+//                            dialogInterface.dismiss();
+//                        }
+//                    })
+//                    .show();
             startActivity(new Intent(this, ScannerContainerActivity.class));
         }
-        super.onBackPressed();
     }
 }
