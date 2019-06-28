@@ -133,7 +133,22 @@ public class WebViewActivity extends Activity {
                     }
                     break;
                 case R.id.close_btn:
-                    startActivity(new Intent(WebViewActivity.this, ScannerContainerActivity.class));
+                    new AlertDialog.Builder(WebViewActivity.this)
+                            .setTitle(R.string.app_name)
+                            .setMessage("브라우저를 종료하시겠습니까?")
+                            .setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+                                    startActivity(new Intent(WebViewActivity.this, ScannerContainerActivity.class));
+                                }
+                            })
+                            .setNegativeButton("취소", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+                                    dialogInterface.dismiss();
+                                }
+                            })
+                            .show();
             }
         }
     };
@@ -214,43 +229,41 @@ public class WebViewActivity extends Activity {
 
         // 뒤로 가기 누를 때 동작
         if (webView.getOriginalUrl().equalsIgnoreCase(String.valueOf(uri))) {
-//            new AlertDialog.Builder(this)
-//                    .setTitle(R.string.app_name)
-//                    .setMessage("브라우저를 종료하시겠습니까?")
-//                    .setPositiveButton("확인", new DialogInterface.OnClickListener() {
-//                        @Override
-//                        public void onClick(DialogInterface dialogInterface, int i) {
-//                            startActivity(new Intent(WebViewActivity.this, ScannerContainerActivity.class));
-//                        }
-//                    })
-//                    .setNegativeButton("취소", new DialogInterface.OnClickListener() {
-//                        @Override
-//                        public void onClick(DialogInterface dialogInterface, int i) {
-//                            dialogInterface.dismiss();
-//                        }
-//                    })
-//                    .show();
-            startActivity(new Intent(this, ScannerContainerActivity.class));
+            new AlertDialog.Builder(this)
+                    .setTitle(R.string.app_name)
+                    .setMessage("브라우저를 종료하시겠습니까?")
+                    .setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            startActivity(new Intent(WebViewActivity.this, ScannerContainerActivity.class));
+                        }
+                    })
+                    .setNegativeButton("취소", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            dialogInterface.dismiss();
+                        }
+                    })
+                    .show();
         } else if (webView.canGoBack()) {
             webView.goBack();
         } else {
-//            new AlertDialog.Builder(this)
-//                    .setTitle(R.string.app_name)
-//                    .setMessage("브라우저를 종료하시겠습니까?")
-//                    .setPositiveButton("확인", new DialogInterface.OnClickListener() {
-//                        @Override
-//                        public void onClick(DialogInterface dialogInterface, int i) {
-//                            startActivity(new Intent(WebViewActivity.this, ScannerContainerActivity.class));
-//                        }
-//                    })
-//                    .setNegativeButton("취소", new DialogInterface.OnClickListener() {
-//                        @Override
-//                        public void onClick(DialogInterface dialogInterface, int i) {
-//                            dialogInterface.dismiss();
-//                        }
-//                    })
-//                    .show();
-            startActivity(new Intent(this, ScannerContainerActivity.class));
+            new AlertDialog.Builder(this)
+                    .setTitle(R.string.app_name)
+                    .setMessage("브라우저를 종료하시겠습니까?")
+                    .setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            startActivity(new Intent(WebViewActivity.this, ScannerContainerActivity.class));
+                        }
+                    })
+                    .setNegativeButton("취소", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            dialogInterface.dismiss();
+                        }
+                    })
+                    .show();
         }
     }
 }
