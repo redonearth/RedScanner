@@ -7,22 +7,46 @@
 
     <LinearLayout
         android:layout_width="match_parent"
+        android:layout_height="32dp"
+        android:layout_alignParentTop="true"
+        android:background="@color/colorPrimaryDark">
+
+        <TextView
+            android:id="@+id/close_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:text="닫기"
+            android:textColor="#ffffff"
+            android:textSize="14dp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="48dp"
+        android:layout_marginTop="32dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
         android:background="@color/colorPrimaryDark">
 
         <ImageButton
+            android:id="@+id/back_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@null"
-            android:id="@+id/back_btn"
-            android:padding="10dp"
-            android:src="@drawable/ic_arrow_back_white_28dp"/>
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:src="@drawable/ic_arrow_back_white_28dp" />
 
         <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@null"
-            android:padding="10dp"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
             android:id="@+id/forward_btn"
             android:src="@drawable/ic_arrow_forward_white_28dp"/>
 
@@ -31,28 +55,48 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@null"
-            android:padding="10dp"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
             android:src="@drawable/ic_refresh_white_28dp"/>
 
         <EditText
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="6"
-            android:id="@+id/address_line" />
+            android:layout_weight="1"
+            android:maxLines="1"
+            android:inputType="textNoSuggestions"
+            android:textColor="#222222"
+            android:textSize="14sp"
+            android:background="#FFFFFF"
+            android:scrollHorizontally="true"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:id="@+id/url_bar" />
 
         <ImageButton
-            android:id="@+id/close_btn"
+            android:id="@+id/enter_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@null"
-            android:padding="10dp"
-            android:src="@drawable/ic_clear_white_28dp" />
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:src="@drawable/ic_keyboard_return_white_28dp" />
 
     </LinearLayout>
 
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:max="100"
+        android:visibility="gone" />
+
     <WebView
         android:id="@+id/webView"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="80dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
